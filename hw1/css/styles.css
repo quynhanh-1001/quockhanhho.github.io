@@ -9,6 +9,12 @@ header, main, nav, footer {
     align-items: center;
 }
 
+.two-column p {
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: left;
+}
+
 .page-image {
     width: 100%;
     max-width: 450px;
@@ -20,4 +26,24 @@ header, main, nav, footer {
 .csumb-logo {
     width: 150px;
     height: auto;
+}
+
+nav a {
+    display: inline-block;
+    padding: 8px 14px;
+    margin: 0 8px;
+    background-color: aquamarine;
+    color: chocolate;
+    text-decoration: none;
+}
+
+nav a.active {
+    font-weight: bold;
+    background-color: chocolate;
+    color: white;
+}
+
+footer {
+    font-size: 13px;
+    color: darkorchid;
 }
