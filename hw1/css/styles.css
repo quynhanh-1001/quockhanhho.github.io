@@ -56,3 +56,24 @@ section p {
     margin-right: 60px;
 }
 
+.three-column {
+    display: grid;                          /* use grid layout */
+    grid-template-columns: 1fr 1fr 1fr;     /* make 3 equal columns */
+    gap: 25px;                              /* space between columns */
+    margin: 20px 40px;                      /* space outside the whole section */
+} 
+
+.three-column article {
+    background-color: #f3f8ff;
+    padding: 18px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+}
+
+.three-column p {
+    font-size: 17px;
+    line-height: 1.6;
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+}
