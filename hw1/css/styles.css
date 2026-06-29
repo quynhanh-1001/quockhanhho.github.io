@@ -77,3 +77,11 @@ section p {
     margin-left: 0;
     margin-right: 0;
 }
+
+.robotics-list {
+    font-size: 18px;
+    line-height: 1.8;
+    text-align: left;
+    width: 80%;
+    margin-left: auto;
+}
