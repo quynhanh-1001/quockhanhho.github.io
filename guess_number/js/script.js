@@ -5,12 +5,15 @@ document.querySelector("#resetBtn").addEventListener("click", initializeGame);
 //Global variables
 let randomNumber;
 let attempts = 0;
+let totalWins = 0;
+let totalLosses = 0;
 
 initializeGame();
 
 function initializeGame() {
    randomNumber = Math.floor(Math.random() * 99) + 1;
    console.log("randomNumber: " + randomNumber);
+
    attempts = 0;
 
    //hiding the Reset button
@@ -40,23 +43,35 @@ function checkGuess() {
     if (isNaN(guess) || guess < 1 || guess > 99) {
         feedback.textContent = "Enter a number between 1 and 99";
         feedback.style.color = "red";
+
+        document.querySelector("#playerGuess").value = "";
+        document.querySelector("#playerGuess").focus();
+
         return;
     }
 
     attempts++;
     console.log("Attempts: " + attempts);
-    feedback.style.color = "orange";
+    //feedback.style.color = "orange";
     console.log("Attempts left: " + (7 - attempts));
-    feedback.style.color = ("blue");
+    //feedback.style.color = ("blue");
+
+    document.querySelector("#guesses").textContent += guess + " ";
 
     if (guess == randomNumber) {
+        totalWins++;
+        document.querySelector("#wins").textContent = totalWins;
+
         feedback.textContent = "You guessed it! You Won!";
         feedback.style.color = "darkgreen";
         gameOver();
     } else {
-        document.querySelector("#guesses").textContent += guess + " ";
+        //document.querySelector("#guesses").textContent += guess + " ";
 
         if (attempts == 7) {
+            totalLosses++;
+            document.querySelector("#losses").textContent = totalLosses;
+
             feedback.textContent = "Sorry, you lost!";
             feedback.style.color = "red";
             gameOver();
@@ -76,7 +91,7 @@ function checkGuess() {
 function gameOver() {
     let guessBtn = document.querySelector("#guessBtn");
     let resetBtn = document.querySelector("#resetBtn");
-    
+
     guessBtn.style.display = "none"; //hides Guess button
     resetBtn.style.display = "inline"; //displays Reset button
 }
