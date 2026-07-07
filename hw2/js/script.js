@@ -101,7 +101,17 @@ function gradeQuiz() {
     wrongAnswer(4);
   }
 
-  document.querySelector("#totalScore").textContent = `Total Score: ${score}`;
+  //document.querySelector("#totalScore").textContent = `Total Score: ${score}`;
+  let totalScore = document.querySelector("#totalScore");
+
+  totalScore.textContent = `Total Score: ${score}`;
+
+  if (score < 80) {
+    totalScore.className = "text-danger";
+  } else {
+    totalScore.className = "text-success";
+    totalScore.textContent += " Congratulations!";
+  }
 
   attempts++;
   document.querySelector("#totalAttempts").textContent = `Total Attempts: ${attempts}`;
@@ -150,3 +160,4 @@ if (attempts === null) {
 } else {
   attempts = Number(attempts);
 }
+
