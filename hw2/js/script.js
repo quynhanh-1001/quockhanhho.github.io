@@ -1,5 +1,15 @@
 document.querySelector("button").addEventListener("click", gradeQuiz);
 
+// function setMarkImage(index, imageName, altText) {
+//   let markContainer = document.querySelector(`#markImg${index}`);
+//   markContainer.textContent = "";
+
+//   let img = document.createElement("img");
+//   img.src = `img/${imageName}`;
+//   img.alt = altText;
+//   markContainer.appendChild(img);
+// }
+
 function isFormValid() {
   let isValid = true;
   let q1Response = document.querySelector("#q1").value;
@@ -30,6 +40,7 @@ function gradeQuiz() {
     img.src = `img/${imageName}`;
     img.alt = altText;
     markContainer.appendChild(img);
+    img.className = "mark-img";
   }
 
   function rightAnswer(index) {
@@ -37,7 +48,7 @@ function gradeQuiz() {
     feedback.textContent = "Correct!";
     feedback.className = "bg-success text-white";
     setMarkImage(index, "checkmark.png", "Checkmark");
-    score += 20;
+    score += 10;
   }
 
   function wrongAnswer(index) {
