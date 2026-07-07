@@ -104,3 +104,37 @@ function gradeQuiz() {
   document.querySelector("#totalScore").textContent = `Total Score: ${score}`;
 }
 
+displayQ4Choices();
+
+function shuffleArray(array) {
+  for (let i = array.length -1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    let temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+}
+
+function displayQ4Choices() {
+  let q4ChoicesArray = ["Maine", "Rhode Island", "Maryland", "Delaware"];
+  shuffleArray(q4ChoicesArray);
+
+  let choicesContainer = document.querySelector("#q4Choices");
+  choicesContainer.textContent = "";
+
+  for (let choice of q4ChoicesArray) {
+    let input = document.createElement("input");
+    input.type = "radio";
+    input.name = "q4";
+    input.id = choice;
+    input.value = choice;
+
+    let label = document.createElement("label");
+    label.htmlFor = choice;
+    label.textContent = choice;
+
+    choicesContainer.appendChild(input);
+    choicesContainer.appendChild(label);
+    choicesContainer.appendChild(document.createTextNode(" "));
+  }
+}
