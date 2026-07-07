@@ -78,6 +78,29 @@ function gradeQuiz() {
   wrongAnswer(1);
   }
 
+  if (q2Response === "mo") {
+    rightAnswer(2);
+  } else {
+    wrongAnswer(2);
+  }
+
+  if (document.querySelector("#Jefferson").checked &&
+    document.querySelector("#Roosevelt").checked &&
+    !document.querySelector("#Jackson").checked &&
+    !document.querySelector("#Franklin").checked) {
+  rightAnswer(3);
+  } else {
+    wrongAnswer(3);
+  }
+
+  let selectedQ4 = document.querySelector("input[name=q4]:checked");
+
+  if (selectedQ4 !== null && selectedQ4.value === "Rhode Island") {
+    rightAnswer(4);
+  } else {
+    wrongAnswer(4);
+  }
+
   document.querySelector("#totalScore").textContent = `Total Score: ${score}`;
 }
 
