@@ -102,6 +102,10 @@ function gradeQuiz() {
   }
 
   document.querySelector("#totalScore").textContent = `Total Score: ${score}`;
+
+  attempts++;
+  document.querySelector("#totalAttempts").textContent = `Total Attempts: ${attempts}`;
+  localStorage.setItem("total_attempts", attempts);
 }
 
 displayQ4Choices();
@@ -137,4 +141,12 @@ function displayQ4Choices() {
     choicesContainer.appendChild(label);
     choicesContainer.appendChild(document.createTextNode(" "));
   }
+}
+
+let attempts = localStorage.getItem("total_attempts");
+
+if (attempts === null) {
+  attempts = 0;
+} else {
+  attempts = Number(attempts);
 }
