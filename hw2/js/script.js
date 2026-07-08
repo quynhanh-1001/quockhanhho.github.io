@@ -60,6 +60,10 @@ function gradeQuiz() {
 
   let q1Response = document.querySelector("#q1").value.toLowerCase();
   let q2Response = document.querySelector("#q2").value;
+  let q5Response = document.querySelector("#q5").value;
+  let q6Response = document.querySelector("#q6").value;
+  let q8Response = document.querySelector("#q8").value;
+  let q9Response = document.querySelector("#q9").value.toLowerCase();
   // let q1Feedback = document.querySelector("#q1Feedback");
   // let markImg1 = document.querySelector("#markImg1");
 
@@ -112,6 +116,50 @@ function gradeQuiz() {
     wrongAnswer(4);
   }
 
+  if (q5Response === "California") {
+    rightAnswer(5);
+  } else {
+    wrongAnswer(5);
+  }
+
+  if (q6Response === "50") {
+    rightAnswer(6);
+  } else {
+    wrongAnswer(6);
+  }
+
+  let selectedQ7 = document.querySelector("input[name=q7]:checked");
+
+  if (selectedQ7 !== null && selectedQ7.value === "Hawaii") {
+    rightAnswer(7);
+  } else {
+    wrongAnswer(7);
+  }
+
+  if (q8Response === "Alaska") {
+    rightAnswer(8);
+  } else {
+    wrongAnswer(8);
+  }
+
+  if (q9Response === "washington dc" || 
+      q9Response === "washington d.c." || 
+      q9Response === "washington, dc" || 
+      q9Response === "washington, d.c.") {
+    rightAnswer(9);
+  } else {
+    wrongAnswer(9);
+  }
+
+  if (document.querySelector("#q10Oregon").checked &&
+      document.querySelector("#q10Nevada").checked &&
+      document.querySelector("#q10Arizona").checked &&
+      !document.querySelector("#q10Texas").checked) {
+    rightAnswer(10);
+  } else {
+    wrongAnswer(10);
+  }
+
   //document.querySelector("#totalScore").textContent = `Total Score: ${score}`;
   let totalScore = document.querySelector("#totalScore");
 
@@ -130,6 +178,7 @@ function gradeQuiz() {
 }
 
 displayQ4Choices();
+displayQ7Choices();
 
 function shuffleArray(array) {
   for (let i = array.length -1; i > 0; i--) {
@@ -156,6 +205,30 @@ function displayQ4Choices() {
 
     let label = document.createElement("label");
     label.htmlFor = choice;
+    label.textContent = choice;
+
+    choicesContainer.appendChild(input);
+    choicesContainer.appendChild(label);
+    choicesContainer.appendChild(document.createTextNode(" "));
+  }
+}
+
+function displayQ7Choices() {
+  let q7ChoicesArray = ["Alaska", "Hawaii", "Arizona", "New Mexico"];
+  shuffleArray(q7ChoicesArray);
+
+  let choicesContainer = document.querySelector("#q7Choices");
+  choicesContainer.textContent = "";
+
+  for (let choice of q7ChoicesArray) {
+    let input = document.createElement("input");
+    input.type = "radio";
+    input.name = "q7";
+    input.id = `q7${choice.replaceAll(" ", "")}`;
+    input.value = choice;
+
+    let label = document.createElement("label");
+    label.htmlFor = input.id;
     label.textContent = choice;
 
     choicesContainer.appendChild(input);

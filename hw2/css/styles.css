@@ -23,11 +23,11 @@ h1 {
 }
 
 .mark-img {
-  width: 25px;
-  height: 25px;
+  width: 45px;
+  height: 45px;
   object-fit: contain;
-  margin-right: 20px;
-  vertical-align: left;
+  margin-right: 12px;
+  vertical-align: middle;
 }
 
 input[type="text"],
