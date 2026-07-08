@@ -39,8 +39,8 @@ function gradeQuiz() {
     let img = document.createElement("img");
     img.src = `img/${imageName}`;
     img.alt = altText;
-    markContainer.appendChild(img);
     img.className = "mark-img";
+    markContainer.appendChild(img);    
   }
 
   function rightAnswer(index) {
@@ -145,7 +145,9 @@ function gradeQuiz() {
   if (q9Response === "washington dc" || 
       q9Response === "washington d.c." || 
       q9Response === "washington, dc" || 
-      q9Response === "washington, d.c.") {
+      q9Response === "washington, d.c." ||
+      q9Response === "Washington" ||
+      q9Response === "washington") {
     rightAnswer(9);
   } else {
     wrongAnswer(9);
@@ -169,6 +171,9 @@ function gradeQuiz() {
     totalScore.className = "text-danger";
   } else {
     totalScore.className = "text-success";
+  }
+
+  if (score > 80) {
     totalScore.textContent += " Congratulations!";
   }
 

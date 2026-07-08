@@ -4,7 +4,7 @@ body {
 }
 
 h1 {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-weight: bold;
 }
 
@@ -19,18 +19,19 @@ h1 {
 
 .quiz-question h3 {
   font-size: 1.3rem;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .mark-img {
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
   margin-right: 12px;
   vertical-align: middle;
 }
 
 input[type="text"],
+input[type="number"],
 select {
   padding: 6px 10px;
   border-radius: 6px;
@@ -43,12 +44,9 @@ label {
   margin-left: 4px;
 }
 
-#q1Feedback,
-#q2Feedback,
-#q3Feedback,
-#q4Feedback {
+[id^="q"][id$="Feedback"] {
   width: 75%;
-  margin: 10px auto;
+  margin: 10px auto 0 auto;
   padding: 8px;
   border-radius: 8px;
   font-weight: bold;
